@@ -1,0 +1,1 @@
+{"id":"demo-q1","owner_id":"demo-user","dataset":"synthetic","query":"How long can I walk outdoors on May 25?","answer":"20 minutes","category":"temporal","objective":true,"list_answer":false,"support_ids":["r2"]}

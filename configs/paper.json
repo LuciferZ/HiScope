@@ -1,0 +1,16 @@
+{
+  "questions": "data/questions.jsonl",
+  "repositories": "data/repositories",
+  "split": "data/splits/locomo_fixed.json",
+  "demonstrations": "data/demonstrations.jsonl",
+  "output": "runs/mrmem_seed2027",
+  "models": {
+    "policy": {"path": "models/Qwen3-8B-Base", "device": "cuda:0", "dtype": "bfloat16", "temperature": 0.7, "checkpointing": true},
+    "answer": {"path": "models/Qwen3-8B", "device": "cuda:2", "dtype": "bfloat16"},
+    "embedding": {"path": "models/Qwen3-Embedding-8B", "device": "cuda:3", "dtype": "bfloat16"}
+  },
+  "reference_device": "cuda:1",
+  "interface": {"view": "hierarchical", "protocol": "two_stage", "granularity": "coarse", "top_k": 5, "memory_budget": 2048, "action_budget": 256, "ranking": "hybrid"},
+  "training": {"seed": 2027, "group_size": 8, "groups_per_batch": 8, "updates": 1000, "update_epochs": 4, "minibatch_size": 8, "learning_rate": 0.000001, "warmup_updates": 100, "clip_epsilon": 0.2, "beta_kl": 0.01, "length_weight": 0.7, "weight_decay": 0.0, "max_grad_norm": 1.0, "validate_every": 50},
+  "judge": {"base_url": "http://localhost:8001/v1", "model": "gpt-4-turbo", "key_env": "MRMEM_JUDGE_API_KEY"}
+}

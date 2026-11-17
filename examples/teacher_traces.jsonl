@@ -1,0 +1,1 @@
+{"owner_id":"demo-user","question_id":"demo-q1","actions":[{"subspace_ids":["limit","pref"],"retrieval_mode":"reasoning","granularity":"coarse","top_k":2,"expand":true,"stop":false},{"subspace_ids":["r2"],"retrieval_mode":"reasoning","granularity":"fine","top_k":1,"expand":false,"stop":true}]}

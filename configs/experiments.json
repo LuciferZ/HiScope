@@ -1,0 +1,32 @@
+{
+  "seeds": [2027, 2028, 2029],
+  "conditions": [
+    {"name": "FC", "method": "rrf", "view": "flat", "protocol": "scope", "stage": "evaluate"},
+    {"name": "HC", "method": "rrf", "view": "hierarchical", "protocol": "scope", "stage": "evaluate"},
+    {"name": "FL", "method": "learned", "view": "flat", "protocol": "scope", "stage": "grpo"},
+    {"name": "HL", "method": "learned", "view": "hierarchical", "protocol": "scope", "stage": "grpo"},
+    {"name": "FL_SFT", "method": "learned", "view": "flat", "protocol": "scope", "stage": "evaluate"},
+    {"name": "HL_SFT", "method": "learned", "view": "hierarchical", "protocol": "scope", "stage": "evaluate"},
+    {"name": "hierarchical_leaf_only", "view": "leaf_only", "protocol": "scope", "stage": "grpo"},
+    {"name": "opaque_masked", "view": "opaque", "protocol": "scope", "stage": "grpo"},
+    {"name": "leaf_list_8", "view": "leaf_list", "protocol": "scope", "stage": "grpo"},
+    {"name": "MRMem", "view": "hierarchical", "protocol": "two_stage", "stage": "grpo"},
+    {"name": "flat_two_stage", "view": "flat", "protocol": "two_stage", "stage": "grpo"},
+    {"name": "fixed_coarse", "view": "hierarchical", "protocol": "fixed_coarse", "stage": "grpo"},
+    {"name": "fixed_fine", "view": "hierarchical", "protocol": "fixed_fine", "stage": "grpo"},
+    {"name": "parent_fine", "view": "hierarchical", "protocol": "parent_fine", "stage": "grpo"},
+    {"name": "adaptive", "view": "hierarchical", "protocol": "adaptive", "stage": "grpo"},
+    {"name": "no_length_reward", "view": "hierarchical", "protocol": "two_stage", "length_weight": 0, "stage": "grpo"},
+    {"name": "from_base", "view": "hierarchical", "protocol": "two_stage", "initialization": "base", "stage": "grpo"},
+    {"name": "zero_shot_flat", "view": "flat", "protocol": "scope", "initialization": "base", "zero_shot": true, "stage": "evaluate"},
+    {"name": "zero_shot_hierarchical", "view": "hierarchical", "protocol": "scope", "initialization": "base", "zero_shot": true, "stage": "evaluate"}
+  ],
+  "validation_grid": {
+    "beta_kl": [0.001, 0.005, 0.01, 0.05],
+    "length_weight": [0.175, 0.35, 0.7, 1.4, 2.8],
+    "learning_rate": [0.0000005, 0.000001, 0.000002],
+    "updates": [500, 750, 1000, 1250],
+    "k_topic": [1, 2, 3, 4, 5]
+  },
+  "repository_growth": [500, 1000, 1500]
+}

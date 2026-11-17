@@ -1,0 +1,15 @@
+{
+  "owner_id": "demo-user",
+  "records": [
+    {"id": "r1", "category": "domain", "topic": "outdoors", "attribute": "preference", "value": "quiet trips", "summary": "Prefers quiet outdoor trips.", "source_ids": ["m1"]},
+    {"id": "r2", "category": "episodic", "topic": "health", "attribute": "walking", "value": "short walks this month", "summary": "Needs short walks this month.", "source_ids": ["m23"]}
+  ],
+  "parents": [
+    {"id": "pref", "summary": "Outdoor preferences", "children": ["r1"]},
+    {"id": "limit", "summary": "Temporary walking restrictions", "children": ["r2"]}
+  ],
+  "sources": [
+    {"id": "m1", "timestamp": "2025-05-01T00:00:00", "text": "I prefer quiet outdoor trips."},
+    {"id": "m23", "timestamp": "2025-05-20T00:00:00", "text": "Until May 31, keep walks under 20 minutes."}
+  ]
+}
