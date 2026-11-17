@@ -1,0 +1,62 @@
+# MRMem: Hierarchical Memory Interfaces for Learned Retrieval
+# Requirements file for reproducibility
+# Python 3.10.12
+
+# Core dependencies
+torch==2.5.1
+transformers==5.12.1  # Qwen3 recommends >= 4.51.0
+accelerate==1.1.0
+deepspeed==0.16.4
+
+# Model and training
+safetensors==0.4.3
+tokenizers==0.22.1
+sentencepiece==0.1.99
+protobuf==3.20.3
+
+# Data processing
+numpy==1.24.3
+pandas==2.0.3
+datasets==4.5.0
+
+# Retrieval and ranking
+faiss-cpu==1.7.4  # or faiss-gpu==1.7.4 for GPU support
+rank-bm25==0.2.2
+scipy==1.11.3
+
+# Utilities
+tqdm==4.66.3
+pyyaml==6.0.1
+jinja2==3.1.2
+packaging==23.2
+
+# Evaluation
+scikit-learn==1.3.1
+rouge-score==0.1.2
+
+# Development (optional)
+pytest==7.4.3
+black==23.11.0
+flake8==6.1.0
+
+# CUDA-specific (installed with torch)
+# CUDA 12.1 toolkit required for GPU support
+# Install command: pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+
+# Installation notes:
+# 1. Install PyTorch first with CUDA support: pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+# 2. Install remaining packages: pip install -r requirements.txt
+# 3. Note: DeepSpeed must be installed after PyTorch (since DeepSpeed 0.11+)
+# 4. Verify Qwen3 model loading: python -c "from transformers import AutoModel; print('OK')"
+
+# Hardware requirements (minimum):
+# - GPU: 48GB VRAM per GPU (NVIDIA L20 or equivalent)
+# - CPU: 64+ cores recommended for data preprocessing
+# - RAM: 128GB+ recommended
+# - Storage: 1TB+ for models and datasets
+
+# For exact reproduction of paper results:
+# - Use 32× NVIDIA L20 GPUs (48GB each)
+# - 2× AMD EPYC 7763 CPUs (64 cores each)
+# - 2TB DDR4 RAM
+# - See SupplementaryAppendix_final.tex Section S6 for complete configuration
