@@ -6,3 +6,8 @@ models/
 checkpoints/
 runs/
 experiments/
+
+# Local documentation; do not commit or upload.
+IMPLEMENTATION_NOTES.md
+README.zh-CN.md
+VALIDATION.md
